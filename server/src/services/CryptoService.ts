@@ -8,6 +8,6 @@ export default class CryptoService {
     }
 
     static compare(hash: string, pass: string) {
-        return compare(pass,hash)
+        return compare(pass, hash)
     }
 }
