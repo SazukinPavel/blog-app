@@ -8,4 +8,3 @@ EXPOSE 3000
 
 CMD ["npm","run","build"]
 CMD ["ls"]
-CMD ["ls","dist"]
