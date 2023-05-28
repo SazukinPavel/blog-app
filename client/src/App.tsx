@@ -19,7 +19,9 @@ function App() {
 
 
     useEffect(() => {
-        dispatch(me())
+        if(localStorage.getItem('blog-token')){
+            dispatch(me())
+        }
     }, [dispatch])
 
     let navigate = useNavigate();
