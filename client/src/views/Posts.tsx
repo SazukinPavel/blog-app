@@ -13,6 +13,7 @@ function Posts() {
     const [page, setPage] = useState(1)
     const [template, setTemplate] = useState("")
     const [isEdit, setIsEdit] = useState("")
+    const [isAddLoading, setIsAddLoading] = useState(false)
 
     const {posts, isFetchLoading, count} = useAppSelector((state) => state.posts)
     const {isAuthorize} = useAppSelector((state) => state.auth)
@@ -37,8 +38,8 @@ function Posts() {
     };
 
     const handleOk = async () => {
-        setIsModalOpen(false);
         await add()
+        setIsModalOpen(false);
     };
 
     const handleCancel = () => {
@@ -46,12 +47,14 @@ function Posts() {
     };
 
     const add = async () => {
+        setIsAddLoading(true)
         if (!isEdit) {
             await dispatch(addPost({template}))
         } else {
             await dispatch(editPost({template, postId: isEdit}))
             setIsEdit("")
         }
+        setIsAddLoading(false)
         setTemplate('')
     }
 
@@ -100,7 +103,7 @@ function Posts() {
                                 onChange={(val) => setPage(val)}/>
                 </div>
             }
-            <Modal width="100%" title="Your post template:" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+            <Modal confirmLoading={isAddLoading} width="100%" title="Your post template:" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
                 <ReactQuill style={{minHeight:300}} preserveWhitespace
                     formats={[
                         'header', 'font', 'size',
