@@ -3,10 +3,12 @@ import JwtService from "../services/JwtService";
 import User from "../models/User";
 import CustomError from "../types/CustomError";
 import {HttpCode} from "../types/HTTPCode";
+import {wrap} from "async-middleware";
 
 async function authMiddleware(req: Request, res: Response, next: NextFunction) {
     try {
         const token = req.header("authorization")?.split(' ')[1];
+
         if (!token) throw new CustomError(HttpCode.UNAUTHORIZED, "No access to this data")
 
         const decoded = JwtService.verify(token)
@@ -16,7 +18,7 @@ async function authMiddleware(req: Request, res: Response, next: NextFunction) {
         }
         next();
     } catch (error) {
-        throw new CustomError(HttpCode.UNAUTHORIZED, "Not valid token")
+        next(new CustomError(HttpCode.UNAUTHORIZED, "Not valid token"))
     }
 }
 
