@@ -57,6 +57,8 @@ class PostsService {
 
         await post.save()
 
+        post.owner=request.user
+
         response.status(HttpCode.CREATED).send(post.toJSON())
     }
 
