@@ -1,8 +1,8 @@
 FROM node:lts-alpine
 
-WORKDIR /app
+WORKDIR /src
 
-COPY ./package.json ./package-lock.json /app/
+COPY ./package.json ./package-lock.json /src/
 
 RUN npm install --force
 
