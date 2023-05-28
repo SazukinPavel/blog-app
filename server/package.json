@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx tsc && npm run copy-files",
+    "build": "tsc && npm run copy-files",
     "start": "node dist/main.js",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/main.js\"",
     "clean": "rm -rf ./dist",
