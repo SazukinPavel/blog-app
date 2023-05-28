@@ -4,8 +4,8 @@
   "description": "",
   "scripts": {
     "build": "tsc && npm run copy-files",
-    "start": "node dist/main.js",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/main.js\"",
+    "start": "node ./dist/main.js",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q ./dist/main.js\"",
     "clean": "rm -rf ./dist",
     "copy-files": "cp ./src/swagger.yaml ./dist/"
   },
