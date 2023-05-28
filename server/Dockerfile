@@ -1,12 +1,12 @@
-FROM node:latest
+FROM node:lts-alpine
 
-WORKDIR /usr/app
+WORKDIR /app
 
-COPY . .
+COPY ./package.json ./package-lock.json /app/
 
-RUN npm i
+RUN npm install --force
+
+COPY . /app/
 
 EXPOSE 3000
-
-CMD ["npm","run","build"]
-CMD ["npm","run","start"]
+CMD ["npm", "run", "dev"]
