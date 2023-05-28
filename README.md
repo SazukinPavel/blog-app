@@ -5,7 +5,7 @@ Simple blog app.
 
 
 
-## Acknowledgements
+## Live demos
 
  - [Frontend client](https://blog-app-client.netlify.app/)
  - [Api](https://blog-app-94d5.onrender.com/api-docs/)
