@@ -52,6 +52,7 @@ function Posts() {
             await dispatch(editPost({template, postId: isEdit}))
             setIsEdit("")
         }
+        setTemplate('')
     }
 
     const editPostHandler = (post: Post) => {
@@ -99,8 +100,7 @@ function Posts() {
                                 onChange={(val) => setPage(val)}/>
                 </div>
             }
-            <Modal width="100%" title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-                <p>Your post template:</p>
+            <Modal width="100%" title="Your post template:" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
                 <ReactQuill style={{minHeight:300}}
                     formats={[
                         'header', 'font', 'size',
