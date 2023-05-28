@@ -51,7 +51,7 @@ function App() {
                     {
                         isAuthorize ?
                             <div style={{display: 'flex', alignItems: 'center'}}>
-                                <Title style={{color: 'white'}}>{user?.login}</Title>
+                                <Title level={3} style={{color: 'white',marginLeft:10}}>{user?.login}</Title>
                                 <Button onClick={signOut} size="large" type="link">Sign out</Button>
                             </div>
                             : <div>
