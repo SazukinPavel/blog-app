@@ -101,7 +101,7 @@ function Posts() {
                 </div>
             }
             <Modal width="100%" title="Your post template:" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-                <ReactQuill style={{minHeight:300}}
+                <ReactQuill style={{minHeight:300}} preserveWhitespace
                     formats={[
                         'header', 'font', 'size',
                         'bold', 'italic', 'underline', 'strike', 'blockquote',
