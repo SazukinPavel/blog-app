@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {Outlet, useNavigate} from "react-router";
-import {Button, Layout, Spin} from "antd";
+import {Button, Layout, } from "antd";
 import {Footer} from "antd/es/layout/layout";
 import {useAppDispatch, useAppSelector} from "./store";
 import Title from "antd/es/typography/Title";

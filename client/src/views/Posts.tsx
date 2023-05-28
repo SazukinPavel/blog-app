@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {addPost, editPost, fetchCount, fetchPosts} from "../store/slices/postsSlice";
 import {useAppDispatch, useAppSelector} from "../store";
 import PostCard from "../components/PostCard";
-import {Button, Modal, Pagination, Select, Spin, Tooltip} from "antd";
+import {Button, Modal, Pagination, Select, Tooltip} from "antd";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import Post from "../types/Post";
