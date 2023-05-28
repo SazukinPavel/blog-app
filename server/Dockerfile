@@ -2,11 +2,11 @@ FROM node:lts-alpine
 
 WORKDIR /src
 
-COPY ./package.json ./package-lock.json /src/
+COPY ./package.json ./package-lock.json /
 
 RUN npm install --force
 
-COPY . /src/
+COPY . .
 
 EXPOSE 3000
 
