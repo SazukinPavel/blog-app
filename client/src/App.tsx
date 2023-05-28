@@ -20,7 +20,7 @@ function App() {
 
     useEffect(() => {
         dispatch(me())
-    }, [])
+    }, [dispatch])
 
     let navigate = useNavigate();
 

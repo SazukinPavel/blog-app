@@ -21,14 +21,14 @@ function Posts() {
 
     useEffect(() => {
         dispatch(fetchCount())
-    }, [])
+    }, [dispatch])
 
     useEffect(() => {
         dispatch(fetchPosts({
             limit
             , page: page - 1
         }))
-    }, [count, limit, page])
+    }, [count, limit, page,dispatch])
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 

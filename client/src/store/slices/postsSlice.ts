@@ -90,7 +90,7 @@ export const postsSlice = createSlice({
             state.posts = [payload, ...state.posts];
         })
         builder.addCase(deletePost.fulfilled, (state, {payload}) => {
-            state.posts = state.posts.filter(p => p._id != payload);
+            state.posts = state.posts.filter(p => p._id !== payload);
         })
         builder.addCase(editPost.fulfilled, (state, {payload}) => {
             state.posts = state.posts.map((p) => {

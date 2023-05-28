@@ -32,12 +32,16 @@ class PostsService {
     }
 
 
-    static async get(request: Request<{},{},{},{ limit: string, page: string ,count:boolean}>, response: Response<IPost[] | {count:number}>) {
+    static async get(request: Request<{}, {}, {}, {
+        limit: string,
+        page: string,
+        count: boolean
+    }>, response: Response<IPost[] | { count: number }>) {
         const limit = +request.query.limit || 20
         const count = request.query.count
         const page = +request.query.page || 0
-        if(count){
-            const count=await Post.count()
+        if (count) {
+            const count = await Post.count()
             return response.status(HttpCode.OK).send({count})
         }
 
@@ -57,7 +61,7 @@ class PostsService {
 
         await post.save()
 
-        post.owner=request.user
+        post.owner = request.user
 
         response.status(HttpCode.CREATED).send(post.toJSON())
     }

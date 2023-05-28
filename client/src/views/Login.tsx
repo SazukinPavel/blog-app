@@ -27,7 +27,7 @@ function Login() {
         if (isAuthorize) {
             navigate('/')
         }
-    }, [isAuthorize])
+    }, [isAuthorize,navigate])
 
     return (
         <div style={{

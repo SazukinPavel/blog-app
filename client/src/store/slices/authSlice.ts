@@ -41,7 +41,7 @@ export const register = createAsyncThunk<AuthResponse, AuthDto>('auth/register',
 
 export const me = createAsyncThunk<AuthResponse>('auth/me', async (dto, {rejectWithValue}) => {
     const res = await api.post<AuthResponse | CustomError>('auth/me', dto)
-    if (res.status != 201) {
+    if (res.status !== 201) {
         return rejectWithValue(res.data as CustomError)
     }
     return res.data as AuthResponse
