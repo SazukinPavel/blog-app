@@ -32,9 +32,15 @@ class PostsService {
     }
 
 
-    static async get(request: Request<{},{},{},{ limit: string, page: string }>, response: Response<IPost[]>) {
+    static async get(request: Request<{},{},{},{ limit: string, page: string ,count:boolean}>, response: Response<IPost[] | {count:number}>) {
         const limit = +request.query.limit || 20
+        const count = request.query.count
         const page = +request.query.page || 0
+        if(count){
+            const count=await Post.count()
+            return response.status(HttpCode.OK).send({count})
+        }
+
         const posts = await Post.find().limit(limit).skip(page * limit).sort({createdAt: 'desc'}).populate('owner')
         response.status(HttpCode.OK).send(posts)
     }
