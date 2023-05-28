@@ -101,7 +101,7 @@ function Posts() {
             }
             <Modal width="100%" title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
                 <p>Your post template:</p>
-                <ReactQuill
+                <ReactQuill style={{minHeight:300}}
                     formats={[
                         'header', 'font', 'size',
                         'bold', 'italic', 'underline', 'strike', 'blockquote',
