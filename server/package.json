@@ -4,10 +4,10 @@
   "description": "",
   "scripts": {
     "build": "tsc && npm run copy-files",
-    "start": "node ./dist/main.js",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q ./dist/main.js\"",
+    "start": "node ./dist/src/main.js",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q ./dist/src/main.js\"",
     "clean": "rm -rf ./dist",
-    "copy-files": "cp ./src/swagger.yaml ./dist/"
+    "copy-files": "cp ./src/swagger.yaml ./dist/src/"
   },
   "keywords": [],
   "author": "",
