@@ -6,6 +6,7 @@ import {Button, Modal, Pagination, Select, Spin, Tooltip} from "antd";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import Post from "../types/Post";
+import Loader from "../components/Loader";
 
 function Posts() {
 
@@ -91,7 +92,7 @@ function Posts() {
                     alignItems: "center",
                     height: '50vh'
                 }}>
-                    <Spin tip="Loading..." size='large' spinning/>
+                    <Loader tip="Loading..."/>
                 </div>
                 : <div>
                     {

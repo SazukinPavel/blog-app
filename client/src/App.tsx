@@ -1,11 +1,12 @@
 import React, {useEffect} from 'react';
 import {Outlet, useNavigate} from "react-router";
-import {Button, Layout} from "antd";
+import {Button, Layout, Spin} from "antd";
 import {Footer} from "antd/es/layout/layout";
 import {useAppDispatch, useAppSelector} from "./store";
 import Title from "antd/es/typography/Title";
 import {me, signOut as signOutAction} from "./store/slices/authSlice";
 import './styles/styles.css'
+import Loader from "./components/Loader";
 
 function App() {
 
@@ -63,9 +64,15 @@ function App() {
 
                     </div>
                 </Header>
-                <Content className="site-layout">
-                    <Outlet></Outlet>
-                </Content>
+                {
+                    isTryAuthLoading?
+                        <div style={{minHeight:'80vh',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                            <Loader/>
+                        </div>:
+                        <Content className="site-layout">
+                            <Outlet></Outlet>
+                        </Content>
+                }
                 <Footer style={{textAlign: 'center'}}>Ant Design ©2023 Created by Ant UED</Footer>
             </Layout>
     )
